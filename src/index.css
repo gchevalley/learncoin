@@ -1,5 +1,546 @@
+.App-blur .AccountPage, .App-blur .graph, .App-blur .Card {
+  filter: blur(10px); }
+
+.graph {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh; }
+
+.Card {
+  display: inline-block;
+  position: relative;
+  margin: 50px;
+  min-height: calc(100vh - 100px);
+  box-sizing: border-box;
+  background-color: #f5faff;
+  z-index: 100;
+  border-top: 5px solid #92e0f4;
+  border-radius: 5px;
+  box-shadow: 0 2px 30px rgba(24, 37, 45, 0.84); }
+  .Card-header {
+    text-align: center;
+    padding: 25px 50px;
+    font-weight: bold;
+    font-size: 25px; }
+  .Card-content {
+    padding: 20px;
+    padding-top: 0; }
+
+.Overlay {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 8000;
+  background-color: rgba(0, 0, 0, 0.7); }
+
+.TransactionProgress {
+  display: block;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 40vw;
+  padding: 50px;
+  box-shadow: 0 0 105px rgba(0, 0, 0, 0.8); }
+  .TransactionProgress-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; }
+    .TransactionProgress-grid .TransactionItem {
+      grid-column: 1; }
+      .TransactionProgress-grid .TransactionItem-item-0 {
+        grid-row: 0; }
+      .TransactionProgress-grid .TransactionItem-item-1 {
+        grid-row: 1; }
+      .TransactionProgress-grid .TransactionItem-item-2 {
+        grid-row: 2; }
+      .TransactionProgress-grid .TransactionItem-item-3 {
+        grid-row: 3; }
+      .TransactionProgress-grid .TransactionItem-item-4 {
+        grid-row: 4; }
+      .TransactionProgress-grid .TransactionItem-item-5 {
+        grid-row: 5; }
+      .TransactionProgress-grid .TransactionItem-item-6 {
+        grid-row: 6; }
+      .TransactionProgress-grid .TransactionItem-item-7 {
+        grid-row: 7; }
+      .TransactionProgress-grid .TransactionItem-item-8 {
+        grid-row: 8; }
+      .TransactionProgress-grid .TransactionItem-item-9 {
+        grid-row: 9; }
+      .TransactionProgress-grid .TransactionItem-item-10 {
+        grid-row: 10; }
+      .TransactionProgress-grid .TransactionItem-item-11 {
+        grid-row: 11; }
+      .TransactionProgress-grid .TransactionItem-item-12 {
+        grid-row: 12; }
+      .TransactionProgress-grid .TransactionItem-item-13 {
+        grid-row: 13; }
+      .TransactionProgress-grid .TransactionItem-item-14 {
+        grid-row: 14; }
+      .TransactionProgress-grid .TransactionItem-item-15 {
+        grid-row: 15; }
+      .TransactionProgress-grid .TransactionItem-item-16 {
+        grid-row: 16; }
+      .TransactionProgress-grid .TransactionItem-item-17 {
+        grid-row: 17; }
+      .TransactionProgress-grid .TransactionItem-item-18 {
+        grid-row: 18; }
+      .TransactionProgress-grid .TransactionItem-item-19 {
+        grid-row: 19; }
+    .TransactionProgress-grid .TransactionBalance {
+      grid-column: 3; }
+      .TransactionProgress-grid .TransactionBalance.balance-0 {
+        grid-row: 0; }
+      .TransactionProgress-grid .TransactionBalance.balance-1 {
+        grid-row: 1; }
+      .TransactionProgress-grid .TransactionBalance.balance-2 {
+        grid-row: 2; }
+      .TransactionProgress-grid .TransactionBalance.balance-3 {
+        grid-row: 3; }
+      .TransactionProgress-grid .TransactionBalance.balance-4 {
+        grid-row: 4; }
+      .TransactionProgress-grid .TransactionBalance.balance-5 {
+        grid-row: 5; }
+      .TransactionProgress-grid .TransactionBalance.balance-6 {
+        grid-row: 6; }
+      .TransactionProgress-grid .TransactionBalance.balance-7 {
+        grid-row: 7; }
+      .TransactionProgress-grid .TransactionBalance.balance-8 {
+        grid-row: 8; }
+      .TransactionProgress-grid .TransactionBalance.balance-9 {
+        grid-row: 9; }
+      .TransactionProgress-grid .TransactionBalance.balance-10 {
+        grid-row: 10; }
+      .TransactionProgress-grid .TransactionBalance.balance-11 {
+        grid-row: 11; }
+      .TransactionProgress-grid .TransactionBalance.balance-12 {
+        grid-row: 12; }
+      .TransactionProgress-grid .TransactionBalance.balance-13 {
+        grid-row: 13; }
+      .TransactionProgress-grid .TransactionBalance.balance-14 {
+        grid-row: 14; }
+      .TransactionProgress-grid .TransactionBalance.balance-15 {
+        grid-row: 15; }
+      .TransactionProgress-grid .TransactionBalance.balance-16 {
+        grid-row: 16; }
+      .TransactionProgress-grid .TransactionBalance.balance-17 {
+        grid-row: 17; }
+      .TransactionProgress-grid .TransactionBalance.balance-18 {
+        grid-row: 18; }
+      .TransactionProgress-grid .TransactionBalance.balance-19 {
+        grid-row: 19; }
+
+@keyframes balanceFadeInFadeOut {
+  0% {
+    opacity: 0; }
+  15% {
+    opacity: 1; }
+  85% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes balanceFadeIn {
+  0% {
+    opacity: 0; }
+  15% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+
+@keyframes animationForPointer4 {
+  0% {
+    transform: translateY(0%); }
+  33.33333% {
+    transform: translateY(100%); }
+  66.66667% {
+    transform: translateY(200%); }
+  100% {
+    transform: translateY(300%); } }
+    .TransactionProgress-grid.children-4 .balance-1 {
+      display: none; }
+    .TransactionProgress-grid.children-4 .balance-2 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 3.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-4 .balance-3 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 4.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-4 .balance-4 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 5.2s;
+      animation-name: balanceFadeIn;
+      animation-fill-mode: forwards; }
+    .TransactionProgress-grid.children-4 .vertical-bar {
+      grid-column: 1;
+      width: 2px;
+      grid-row: 1 / 100;
+      margin: 10px auto;
+      background-color: #ccc;
+      position: relative;
+      z-index: 0; }
+    .TransactionProgress-grid.children-4 .pointer span {
+      animation-name: animationForPointer4;
+      animation-fill-mode: forwards;
+      animation-duration: 4s;
+      animation-delay: 2s; }
+
+@keyframes animationForPointer5 {
+  0% {
+    transform: translateY(0%); }
+  25% {
+    transform: translateY(100%); }
+  50% {
+    transform: translateY(200%); }
+  75% {
+    transform: translateY(300%); }
+  100% {
+    transform: translateY(400%); } }
+    .TransactionProgress-grid.children-5 .balance-1 {
+      display: none; }
+    .TransactionProgress-grid.children-5 .balance-2 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 3.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-5 .balance-3 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 4.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-5 .balance-4 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 5.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-5 .balance-5 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 6.2s;
+      animation-name: balanceFadeIn;
+      animation-fill-mode: forwards; }
+    .TransactionProgress-grid.children-5 .vertical-bar {
+      grid-column: 1;
+      width: 2px;
+      grid-row: 1 / 100;
+      margin: 10px auto;
+      background-color: #ccc;
+      position: relative;
+      z-index: 0; }
+    .TransactionProgress-grid.children-5 .pointer span {
+      animation-name: animationForPointer5;
+      animation-fill-mode: forwards;
+      animation-duration: 5s;
+      animation-delay: 2s; }
+
+@keyframes animationForPointer6 {
+  0% {
+    transform: translateY(0%); }
+  20% {
+    transform: translateY(100%); }
+  40% {
+    transform: translateY(200%); }
+  60% {
+    transform: translateY(300%); }
+  80% {
+    transform: translateY(400%); }
+  100% {
+    transform: translateY(500%); } }
+    .TransactionProgress-grid.children-6 .balance-1 {
+      display: none; }
+    .TransactionProgress-grid.children-6 .balance-2 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 3.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-6 .balance-3 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 4.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-6 .balance-4 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 5.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-6 .balance-5 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 6.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-6 .balance-6 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 7.2s;
+      animation-name: balanceFadeIn;
+      animation-fill-mode: forwards; }
+    .TransactionProgress-grid.children-6 .vertical-bar {
+      grid-column: 1;
+      width: 2px;
+      grid-row: 1 / 100;
+      margin: 10px auto;
+      background-color: #ccc;
+      position: relative;
+      z-index: 0; }
+    .TransactionProgress-grid.children-6 .pointer span {
+      animation-name: animationForPointer6;
+      animation-fill-mode: forwards;
+      animation-duration: 6s;
+      animation-delay: 2s; }
+
+@keyframes animationForPointer7 {
+  0% {
+    transform: translateY(0%); }
+  16.66667% {
+    transform: translateY(100%); }
+  33.33333% {
+    transform: translateY(200%); }
+  50% {
+    transform: translateY(300%); }
+  66.66667% {
+    transform: translateY(400%); }
+  83.33333% {
+    transform: translateY(500%); }
+  100% {
+    transform: translateY(600%); } }
+    .TransactionProgress-grid.children-7 .balance-1 {
+      display: none; }
+    .TransactionProgress-grid.children-7 .balance-2 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 3.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-7 .balance-3 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 4.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-7 .balance-4 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 5.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-7 .balance-5 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 6.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-7 .balance-6 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 7.2s;
+      animation-name: balanceFadeInFadeOut; }
+    .TransactionProgress-grid.children-7 .balance-7 {
+      opacity: 0;
+      animation-duration: 2s;
+      animation-delay: 8.2s;
+      animation-name: balanceFadeIn;
+      animation-fill-mode: forwards; }
+    .TransactionProgress-grid.children-7 .vertical-bar {
+      grid-column: 1;
+      width: 2px;
+      grid-row: 1 / 100;
+      margin: 10px auto;
+      background-color: #ccc;
+      position: relative;
+      z-index: 0; }
+    .TransactionProgress-grid.children-7 .pointer span {
+      animation-name: animationForPointer7;
+      animation-fill-mode: forwards;
+      animation-duration: 7s;
+      animation-delay: 2s; }
+    .TransactionProgress-grid .pointer {
+      grid-row: 1 / 1000;
+      grid-column: 2; }
+    .TransactionProgress-grid .TransactionItem, .TransactionProgress-grid .TransactionBalance, .TransactionProgress-grid .pointer span {
+      display: block;
+      padding: 20px;
+      font-size: 24px;
+      margin: 10px; }
+    .TransactionProgress-grid .pointer span {
+      padding: 30px;
+      margin: 0; }
+    .TransactionProgress-grid .TransactionItem {
+      background-color: #ccc;
+      position: relative;
+      z-index: 100; }
+    .TransactionProgress-grid .TransactionItem, .TransactionProgress-grid .TransactionBalance {
+      text-align: right; }
+      .TransactionProgress-grid .TransactionItem > .amount, .TransactionProgress-grid .TransactionBalance > .amount {
+        font-weight: bold; }
+    .TransactionProgress-grid .TransactionBalance.final {
+      text-decoration: underline; }
+      .TransactionProgress-grid .TransactionBalance.final.positive {
+        color: green; }
+      .TransactionProgress-grid .TransactionBalance.final.negative {
+        color: red; }
+
+.AccountPage {
+  padding: 50px 30px; }
+  .AccountPage-nickname {
+    text-align: center;
+    padding: 15px 50px;
+    font-weight: bold;
+    font-size: 25px; }
+  .AccountPage-picture {
+    text-align: center; }
+    .AccountPage-picture > img {
+      width: 128px;
+      height: 128px;
+      border-radius: 64px; }
+  .AccountPage-balance {
+    text-align: center;
+    font-size: 35px; }
+  .AccountPage-actions {
+    display: grid;
+    grid-column-gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 0 0px; }
+    .AccountPage-actions > a {
+      grid-row: 1;
+      display: block;
+      flex-grow: 1;
+      padding: 20px 50px;
+      font-family: "Barlow", "Barlow", sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      color: #498991;
+      border: 1px solid #498991;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.5s ease;
+      text-align: center; }
+      .AccountPage-actions > a:hover {
+        background-color: rgba(23, 125, 155, 0.04); }
+      .AccountPage-actions > a.selected {
+        color: #fff;
+        border-color: transparent;
+        background-color: #498991;
+        box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2); }
+        .AccountPage-actions > a.selected:hover {
+          background-color: #417a81; }
+  .AccountPage .Contact {
+    color: #1b3134;
+    cursor: pointer;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(73, 137, 145, 0.3);
+    transition: background-color 0.5s ease; }
+    .AccountPage .Contact:hover {
+      background-color: rgba(23, 125, 155, 0.04); }
+    .AccountPage .Contact.selected {
+      background-color: rgba(23, 125, 155, 0.09); }
+    .AccountPage .Contact-id {
+      font-size: 12px;
+      color: rgba(27, 49, 52, 0.75); }
+  .AccountPage .AmountForm {
+    display: grid;
+    background-color: #fff;
+    align-items: center;
+    grid-template-columns: auto 1fr; }
+    .AccountPage .AmountForm > * {
+      grid-row: 1; }
+    .AccountPage .AmountForm > input {
+      grid-column: 2;
+      display: block;
+      box-sizing: border-box;
+      font-family: "Barlow", sans-serif;
+      color: #498991;
+      padding: 20px 10px;
+      font-size: 30px;
+      border-width: 0;
+      background: transparent;
+      font-weight: bold; }
+      .AccountPage .AmountForm > input:focus {
+        outline-width: 0; }
+    .AccountPage .AmountForm-label {
+      content: "UBS";
+      color: #498991;
+      opacity: 0.6;
+      font-size: 30px;
+      padding: 0 10px;
+      cursor: pointer; }
+    .AccountPage .AmountForm-underline {
+      grid-column: 2;
+      height: 2px;
+      background-color: #dedede;
+      align-self: end;
+      position: relative;
+      margin: 10px; }
+  .AccountPage .submit {
+    display: block;
+    margin-top: 15px;
+    padding: 15px 50px;
+    font-family: "Barlow", "Barlow", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: #81a858;
+    transition: background-color 0.5s ease;
+    text-align: center; }
+    .AccountPage .submit:hover {
+      background-color: #8dc454;
+      box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2); }
+    .AccountPage .submit:focus {
+      outline-width: 0; }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+.OverviewPage-transaction {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  grid-column-gap: 20px;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(73, 137, 145, 0.3); }
+  .OverviewPage-transaction.new-item {
+    animation-name: fadeIn;
+    animation-duration: 5s;
+    animation-timing-function: ease; }
+  .OverviewPage-transaction .amount, .OverviewPage-transaction .from, .OverviewPage-transaction .to, .OverviewPage-transaction .arrow {
+    grid-row: 1; }
+  .OverviewPage-transaction .amount {
+    grid-column: 1;
+    font-size: 18px; }
+    .OverviewPage-transaction .amount > span {
+      font-weight: bold; }
+  .OverviewPage-transaction .arrow {
+    grid-column: 3;
+    color: #498991; }
+  .OverviewPage-transaction .timestamp {
+    grid-row: 2;
+    grid-column: 1 / 3;
+    font-size: 12px; }
+  .OverviewPage-transaction .from, .OverviewPage-transaction .to {
+    font-size: 10px;
+    align-self: end;
+    font-family: "IBM Plex Mono", monospace; }
+
+body, html {
+  overflow-x: hidden;
+  height: 100%; }
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-}
+  font-family: "Barlow", sans-serif; }
+
+body.dark {
+  background-color: #102830; }

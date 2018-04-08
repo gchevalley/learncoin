@@ -1,0 +1,22 @@
+@import "App";
+@import "components/Card";
+@import "components/Overlay";
+@import "components/TransactionProgress";
+@import "components/AccountPage";
+@import "components/OverviewPage";
+
+body, html {
+  overflow-x: hidden;
+  height:100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Barlow", sans-serif;
+}
+
+
+body.dark {
+  background-color: #102830;
+}

@@ -1,0 +1,25 @@
+.Card {
+  display:inline-block;
+  position: relative;
+  margin:50px;
+  min-height:calc(100vh - 100px);
+  box-sizing: border-box;
+  background-color: #f5faff;
+  z-index: 100;
+  border-top:5px solid #92e0f4;
+  border-radius: 5px;
+  box-shadow: 0 2px 30px rgba(24, 37, 45, 0.84);
+
+  &-header {
+    text-align: center;
+    padding:25px 50px;
+    font-weight: bold;
+    font-size:25px;
+  }
+
+  &-content {
+    $padding: 20px;
+    padding: $padding;
+    padding-top: 0;
+  }
+}
