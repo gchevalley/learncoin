@@ -113,7 +113,6 @@ export class AccountPage extends Component {
           <Route path="/account/send/" component={this.sendTransactionForm}/>
           <Route path="/account/ask/" component={this.askTransactionForm}/>
         </Switch>
-        <pre>{JSON.stringify({ amount, contact }, null, 2)}</pre>
       </div>
     </div>;
   }
